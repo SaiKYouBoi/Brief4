@@ -5,25 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Main css file -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="HomeStyle.css">
+    <!-- Render All elements normally -->
+    <link rel="stylesheet" href="normalize.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap" rel="stylesheet">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,155 +66,181 @@
 </head>
 
 <body>
-    <header>
-        <div class="leftone">
-            <a href="index.html">
-                <img src="./Images/Header/headerlogo.png" alt="logo">
-            </a>
-        </div>
-        <div class="rightone">
+    <!-- === NAVBAR === -->
+    <header class="navbar">
+        <div class="logo"><img src="./images/Home/Header/Cosmicexplore-logo.png" alt="logo"></div>
 
-            <div class="search-container">
-                <input class="search-bar" type="text" placeholder="Search">
+        <nav class="nav-links" id="plann">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About us</a>
+            <a href="planets.html">Planets</a>
+            <a href="mission.html">Missions</a>
+            <a href="contacts.html">Contact us</a>
+        </nav>
 
-            </div>
-            <p>English</p>
-            <img id="vector" src="./Images/Header/Vector.png" alt="">
-            <img src="./Images/Header/Button.png" alt="">
-            <img src="./Images/Header/ProfileIcon.png" alt="Profile picture">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </header>
-    <div class="navigation">
-        <div class="social-icons">
-            <img src="./Images/navigation/instagram-icon.png" alt="insta-icon">
-            <img src="./Images/navigation/twitter-icon.png" alt="twitter-icon">
-            <img src="./Images/navigation/Be-icon.png" alt="twitter-icon">
-        </div>
-        <div class="navlinks">
-            <a href="index.html">HOME</a>
-            <a href="">PROJECTS</a>
-            <a href="">MEDIA</a>
-            <a href="">TECH</a>
-            <a href="mission.html">MISSIONS</a>
-            <a href="aboutus.html">ABOUT US</a>
-            <a href="planets.html">PLANETES</a>
-            <a href="contacts.html"><button>Contact Us</button></a>
-        </div>
+    <!-- === NAVBAR === -->
+
+    <!-- === SIDEBAR=== -->
+    <div class="sidebar">
+        <span class="close-btn">&times;</span>
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About us</a>
+        <a href="planets.html">Planets</a>
+        <a href="mission.html">Missions</a>
+        <a href="contacts.html">Contact us</a>
     </div>
+    <!-- === SIDEBAR=== -->
+
+    <!-- === JS TOGGLE === -->
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const sidebar = document.querySelector(".sidebar");
+        const closeBtn = document.querySelector(".close-btn");
+
+        // Open sidebar
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            sidebar.classList.add("active");
+        });
+
+        // Close sidebar
+        closeBtn.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            sidebar.classList.remove("active");
+        });
+    </script>
+
     <div class="planets-section">
-    
-        <h1>The Planets of Our Solar System</h1>
+        <h1>The Planets of Our <span class="solarsystem">Solar System</span></h1>
         <p> Welcome to our cosmic neighborhood the Solar System.</p>
     </div>
-    <div class="mission-title">
-      <img src="./Images/planetspage/planeteIcon.png" alt="planeteIcon"> 
-      <p>The Planets</p>
+    <div class="planet-title">
+        <h1>The <span>Planets</span></h1>
     </div>
+    <div class="all-planets">
+        <div class="planet">
+            <div class="planet-image">
+                <img src="./Images/planetspage/planetes/earth.png" alt="Earth image">
+            </div>
+            <div class="planet-def">
+                <h1>Earth</h1>
+                <p>Our home planet, the only known world with life. Earth’s surface is covered by 70% water and has the
+                    perfect balance of atmosphere and temperature to sustain living organisms.</p>
+            </div>
+        </div>
 
-    <div class="planet">
-        <div class="planet-image">
-            <img src="./Images/planetspage/planetes/earth.png" alt="Earth image">
+        <div class="planetmoon">
+            <div class="planetmoon-def">
+                <h1>The Moon</h1>
+                <p>The Moon is Earth’s only natural satellite and our closest neighbor in space. It has no air or water,
+                    but its gravity controls Earth’s tides and keeps our planet’s rotation stable.In 1969, humans first
+                    walked on its surface during the Apollo 11 mission.</p>
+            </div>
+            <div class="planetmoon-image">
+                <img src="./Images/planetspage/planetes/moon.png" alt="moon image">
+            </div>
         </div>
-        <div class="planet-def">
-        <h1>Earth</h1>
-        <p>Our home planet, the only known world with life. Earth’s surface is covered by 70% water and has the perfect balance of atmosphere and temperature to sustain living organisms.</p>
-        </div>
-    </div>
-    
-    <div class="planetmoon">
-        <div class="planetmoon-def">
-        <h1>The Moon</h1>
-        <p>The Moon is Earth’s only natural satellite and our closest neighbor in space. It has no air or water, but its gravity controls Earth’s tides and keeps our planet’s rotation stable.In 1969, humans first walked on its surface during the Apollo 11 mission.</p>
-        </div>
-        <div class="planetmoon-image">
-            <img src="./Images/planetspage/planetes/moon.png" alt="moon image">
-        </div>
-    </div>
 
-    <div class="thesun">
-        <div class="thesun-image">
-            <img src="./Images/planetspage/planetes/The sun.png" alt="The sun image">
+        <div class="thesun">
+            <div class="thesun-image">
+                <img src="./Images/planetspage/planetes/The sun.png" alt="The sun image">
+            </div>
+            <div class="thesun-def">
+                <h1>The Sun</h1>
+                <p>The Sun is the center of our Solar System and the source of all light and energy on Earth.
+                    It’s a massive sphere of hot plasma whose gravity holds the planets in orbit and sustains life on
+                    our planet.</p>
+            </div>
         </div>
-        <div class="thesun-def">
-        <h1>The Sun</h1>
-        <p>The Sun is the center of our Solar System and the source of all light and energy on Earth.
-It’s a massive sphere of hot plasma whose gravity holds the planets in orbit and sustains life on our planet.</p>
-        </div>
-    </div>
 
 
-    <div class="planetneptune">
-        <div class="planetneptune-def">
-        <h1>Neptune</h1>
-        <p>The most distant planet from the Sun.Neptune is a deep blue world with the strongest winds in the Solar System — reaching speeds over 2,000 km/h!</p>
+        <div class="planetneptune">
+            <div class="planetneptune-def">
+                <h1>Neptune</h1>
+                <p>The most distant planet from the Sun.Neptune is a deep blue world with the strongest winds in the
+                    Solar System — reaching speeds over 2,000 km/h!</p>
+            </div>
+            <div class="planetneptune-image">
+                <img src="./Images/planetspage/planetes/Neptune.png" alt="Neptune image">
+            </div>
         </div>
-        <div class="planetneptune-image">
-            <img src="./Images/planetspage/planetes/Neptune.png" alt="Neptune image">
-        </div>
-    </div>
-    
-    <div class="jupiter">
-        <div class="jupiter-image">
-            <img src="./Images/planetspage/planetes/Jupiter.png" alt="The sun image">
-        </div>
-        <div class="jupiter-def">
-        <h1>Jupiter </h1>
-        <p>The largest planet in our Solar System a giant made mostly of gas.Jupiter’s Great Red Spot is a massive storm that has been raging for centuries. Its strong magnetic field and dozens of moons make it a fascinating world of extremes.</p>
-        </div>
-    </div>
 
-    <div class="planetvenus">
-        <div class="planetvenus-def">
-        <h1>Venus</h1>
-        <p>Venus is often called Earth’s “twin” because of its size and structure, but it’s far from friendly. Its thick atmosphere traps heat, making it the hottest planet in the Solar System — even hotter than Mercury.</p>
+        <div class="jupiter">
+            <div class="jupiter-image">
+                <img src="./Images/planetspage/planetes/Jupiter.png" alt="The sun image">
+            </div>
+            <div class="jupiter-def">
+                <h1>Jupiter </h1>
+                <p>The largest planet in our Solar System a giant made mostly of gas.Jupiter’s Great Red Spot is a
+                    massive storm that has been raging for centuries. Its strong magnetic field and dozens of moons make
+                    it a fascinating world of extremes.</p>
+            </div>
         </div>
-        <div class="planetvenus-image">
-            <img src="./Images/planetspage/planetes/Venus.png" alt="Venus image">
+
+        <div class="planetvenus">
+            <div class="planetvenus-def">
+                <h1>Venus</h1>
+                <p>Venus is often called Earth’s “twin” because of its size and structure, but it’s far from
+                    friendly. Its thick atmosphere traps heat, making it the hottest planet in the Solar System — even
+                    hotter than Mercury.</p>
+            </div>
+            <div class="planetvenus-image">
+                <img src="./Images/planetspage/planetes/Venus.png" alt="Venus image">
+            </div>
+        </div>
+
+        <div class="mars">
+            <div class="mars-image">
+                <img src="./Images/planetspage/planetes/Mars.png" alt="mars image">
+            </div>
+            <div class="mars-def">
+                <h1>Mars</h1>
+                <p>Known as the “Red Planet,” Mars has captivated scientists for centuries. With its vast deserts,
+                    towering volcanoes, and signs of ancient riverbeds, it remains humanity’s top candidate for future
+                    colonization.</p>
+            </div>
+        </div>
+
+        <div class="saturn">
+            <div class="saturn-def">
+                <h1>Saturn</h1>
+                <p>Saturn is famous for its spectacular rings made mostly of ice and dust. It’s a gas giant composed
+                    mainly of hydrogen and helium, with more than 140 moons orbiting it.</p>
+            </div>
+            <div class="saturn-image">
+                <img src="./Images/planetspage/planetes/Saturn.png" alt="saturn image">
+            </div>
+        </div>
+
+        <div class="uranus">
+            <div class="uranus-image">
+                <img src="./Images/planetspage/planetes/Mars.png" alt="mars image">
+            </div>
+            <div class="uranus-def">
+                <h1>Uranus</h1>
+                <p>Uranus is a unique planet because it spins on its side, possibly due to a massive collision in its
+                    past.
+                    Its bluish-green color comes from methane gas in its atmosphere.</p>
+            </div>
         </div>
     </div>
-
-     <div class="mars">
-        <div class="mars-image">
-            <img src="./Images/planetspage/planetes/Mars.png" alt="mars image">
-        </div>
-        <div class="mars-def">
-        <h1>Mars</h1>
-        <p>Known as the “Red Planet,” Mars has captivated scientists for centuries. With its vast deserts, towering volcanoes, and signs of ancient riverbeds, it remains humanity’s top candidate for future colonization.</p>
-        </div>
-    </div>
-
-    <div class="saturn">
-        <div class="saturn-def">
-        <h1>Saturn</h1>
-        <p>Saturn is famous for its spectacular rings made mostly of ice and dust. It’s a gas giant composed mainly of hydrogen and helium, with more than 140 moons orbiting it.</p>
-        </div>
-        <div class="saturn-image">
-            <img src="./Images/planetspage/planetes/Saturn.png" alt="saturn image">
-        </div>
-    </div>
-
-    <div class="uranus">
-        <div class="uranus-image">
-            <img src="./Images/planetspage/planetes/Mars.png" alt="mars image">
-        </div>
-        <div class="uranus-def">
-        <h1>Uranus</h1>
-        <p>Uranus is a unique planet because it spins on its side, possibly due to a massive collision in its past.
-Its bluish-green color comes from methane gas in its atmosphere.</p>
-        </div>
-    </div>
-
-<div class="mission-title">
-      <img src="./Images/planetspage/planeteIcon.png" alt="planeteIcon"> 
-      <p>Dwarf Planets</p>
+    <div class="planet-title">
+        <h1>Dwarf <span>Planets</span></h1>
     </div>
     <div class="planets-container">
         <div class="dwarfplanet">
             <img src="./Images/planetspage/dwarf-planetes/pluto.png" alt="plutoimage">
             <h1>Pluto</h1>
-            <p>Once considered the ninth planet, Pluto was reclassified as a dwarf planet in 2006. It remains a symbol of humanity’s curiosity and exploration.</p>
+            <p>Once considered the ninth planet, Pluto was reclassified as a dwarf planet in 2006. It remains a symbol
+                of humanity’s curiosity and exploration.</p>
         </div>
-         <div class="dwarfplanet">
+        <div class="dwarfplanet">
             <img src="./Images/planetspage/dwarf-planetes/Ceres.png" alt="Ceresimage">
             <h1>Ceres</h1>
             <p>The largest object in the asteroid belt and the first dwarf planet to be visited by a spacecraft.</p>
@@ -233,54 +267,86 @@ Its bluish-green color comes from methane gas in its atmosphere.</p>
         </p>
     </div>
 
-    <footer class="footerbanner">
-    <div class="footercontainer">
-        <div class="footercontent">
-        <div class="fcrightpart">
-            <p><b>Legal</b></p>
-            <p>Terms of Service</p>
-            <p>Privacy Policy</p>
-            <p>Cookies</p>
-        </div>
-        <div class="fcrightpart fcmiddlepart">
-            <p>Information</p>
-            <p>FAQ</p>
-            <p>Blog</p>
-            <p>Support</p>
-        </div>
-        <div class="fcrightpart fcleftpart">
-            <p><b></b></p>
-            <p>About us</p>
-            <p>Careers</p>
-            <p>Contact us</p>
-        </div>
-        <div class="subsucription">
-            <p>Subsucribe</p>
-            <button>
-                Email address
-            </button>
-        </div>
-    </div>
-    <div class="line"></div>
-    <div class="bottomcontainer">
-        <div>
-            <img src="./Images/Header/headerlogo.png" alt="Logo">
-        </div>
-        <div class="terms">
-            <p>Terms</p>
-            <p>Privacy</p>
-            <p>Cookies</p>
-        </div>
-        <div class="social-links">
-            <img src="./Images/Footer/Linkedin.png" alt="">
-            <img src="./Images/Footer/Facebook.png" alt="">
-            <img src="./Images/Footer/Twitter.png" alt="">
-        </div>
-    </div>
-    </div>
-    
+    <footer class="main-footer">
+      <div class="footer-container">
+        <div class="footer-col brand">
+          <div class="logo-footer">
+            <img src="images/missions/logo.png" alt="" />
+            
+          </div>
 
-</footer>
+          <p class="p-footer">
+            Discover the wonders of the universe with beginner-friendly
+            astronomy resources.
+          </p>
+          <div class="social-icons">
+            <a href="#"
+              ><img src="images/missions/fb-Link.png" id="fb" alt="Facebook"
+            /></a>
+            <a href="#"
+              ><img src="images/missions/X-Link.png"  id="X"alt="Twitter"
+            /></a>
+            <a href="#"
+              ><img src="images/missions/insta-Link.png"  id="inst" alt="Instagram"
+            /></a>
+            <a href="#"
+              ><img src="images/missions/ytb-Link.png" id="ytp" alt="YouTube"
+            /></a>
+            <a href="#"
+              ><img src="images/missions/msg-Link.png" id="messg" alt="Email"
+            /></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#">Celestial Catalogue</a></li>
+            <li><a href="#">News & Events</a></li>
+            <li><a href="#">Space Missions</a></li>
+            <li><a href="#">Astrophotography</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Community</h3>
+          <ul>
+            <li><a href="#">Join Community</a></li>
+            <li><a href="#">Forums</a></li>
+            <li><a href="#">Photo Gallery</a></li>
+            <li><a href="#">Contributors</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Beginner Guides</a></li>
+            <li><a href="#">Equipment Reviews</a></li>
+            <li><a href="#">Observation Tips</a></li>
+            <li><a href="#">Sky Calendar</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>About</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          Â© 2025 CosmicExplore. All rights reserved. | Explore the cosmos with
+          wonder.
+        </p>
+      </div>
+    </footer>
 
 </body>
-</html>     
+
+</html>

@@ -5,22 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Style Css Files -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="HomeStyle.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Render All elements normally -->
+    <link rel="stylesheet" href="normalize.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap" rel="stylesheet">
 
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,154 +62,327 @@
 </head>
 
 <body>
-    <header>
-        <div class="leftone">
-            <a href="index.html">
-                <img src="./Images/Header/headerlogo.png" alt="logo">
-            </a>
-        </div>
-        <div class="rightone">
+    <!-- === NAVBAR === -->
+    <header class="navbar">
+        <div class="logo"><img src="./images/Home/Header/Cosmicexplore-logo.png" alt="logo"></div>
 
-            <div class="search-container">
-                <input class="search-bar" type="text" placeholder="Search">
+        <nav class="nav-links" id="miss">
+            <a href="index.html">Home</a>
+            <a href="aboutus.html">About us</a>
+            <a href="planets.html">Planets</a>
+            <a href="mission.html">Missions</a>
+            <a href="contacts.html">Contact us</a>
+        </nav>
 
-            </div>
-            <p>English</p>
-            <img id="vector" src="./Images/Header/Vector.png" alt="">
-            <img src="./Images/Header/Button.png" alt="">
-            <img src="./Images/Header/ProfileIcon.png" alt="Profile picture">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </header>
-    <div class="navigation">
-        <div class="social-icons">
-            <img src="./Images/navigation/instagram-icon.png" alt="insta-icon">
-            <img src="./Images/navigation/twitter-icon.png" alt="twitter-icon">
-            <img src="./Images/navigation/Be-icon.png" alt="twitter-icon">
-        </div>
-        <div class="navlinks">
-            <a href="index.html">HOME</a>
-            <a href="#">PROJECTS</a>
-            <a href="#">MEDIA</a>
-            <a href="#">TECH</a>
-            <a href="mission.html">MISSIONS</a>
-            <a href="aboutus.html">ABOUT US</a>
-            <a href="planets.html">PLANETES</a>
-            <a href="contacts.html"><button>Contact Us</button></a>
-        </div>
+    <!-- === NAVBAR === -->
+
+    <!-- === SIDEBAR=== -->
+    <div class="sidebar">
+        <span class="close-btn">&times;</span>
+        <a href="index.html">Home</a>
+            <a href="aboutus.html">About us</a>
+            <a href="planets.html">Planets</a>
+            <a href="mission.html">Missions</a>
+            <a href="contacts.html">Contact us</a>
     </div>
+    <!-- === SIDEBAR=== -->
+
+    <!-- === JS TOGGLE === -->
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const sidebar = document.querySelector(".sidebar");
+        const closeBtn = document.querySelector(".close-btn");
+
+        // Open sidebar
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            sidebar.classList.add("active");
+        });
+
+        // Close sidebar
+        closeBtn.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            sidebar.classList.remove("active");
+        });
+    </script>
     <div class="missionherosection">
-        
-        <h1>Space Missions</h1>
-        <p> AstroTech Studio proudly presents a journey through some of the most iconic and groundbreaking space missions in human history  from the first steps on the Moon to deep space exploration. </p>
+
+        <h1>Space <span class="missions-span">Missions</span></h1>
+        <p> AstroTech Studio proudly presents a journey through some of the most iconic and groundbreaking space
+            missions in human history from the first steps on the Moon to deep space exploration. </p>
     </div>
     <div class="mission-title">
-      <img src="./Images/Hero/comunityicon.png" alt="comunityicon"> 
-      <p>Missions</p>
+        <h1>Missions</h1>
     </div>
 
-    <div class="missions-table">
+    <div class="missions-table" id="missionsContainer">
+        <!-- Artemis II-->
         <div class="Artemis">
-            <img src="./Images/missionpage/Artemis.png" alt="Artemis">
-            <p id="missionheading">Artemis II (November 16, 2022)</p>
-            <p id="missionarticle">Four astronauts will venture around the Moon on Artemis II, the first crewed mission on NASA's path to establishing a long-term presence at the Moon for science and exploration.</p>
+            <img class="mission-img" src="./Images/missionpage/Artemis.png" alt="Artemis">
+            <div class="Artemis-infos">
+                <p id="missionheading">Artemis II</p>
+                <p id="missionarticle">Four astronauts will venture around the Moon on Artemis II, the first crewed
+                    mission on NASA's path to establishing a long-term presence at the Moon for science and exploration.
+                </p>
+                <div class="dateplusagency">
+                    <div class="mission-smallcard"><img src="./images/Home/object/calender-icon.png"
+                            alt="calender-icon">
+                        <p>02/05/2026</p>
+                    </div>
+                    <div class="mission-smallcard"><img src="./images/Home/object/rocket-icon.png" alt="calender-icon">
+                        <p>Nasa</p>
+                    </div>
+                </div>
+            </div>
         </div>
-         <div class="Artemis">
-            <img src="./Images/missionpage/Comercial grew.png" alt="Comercial crew">
-            <p id="missionheading">Commercial Crew (May 30, 2020)</p>
-            <p id="missionarticle">NASA’s Commercial Crew Program is delivering on its goal of safe, reliable, and cost-effective human transportation to and from the International Space Station.</p>
-        </div>
-         <div class="Artemis">
-            <img src="./Images/missionpage/Hubble.png" alt="Hubble Space">
-            <p id="missionheading">Hubble Space Telescope (April 24, 1990)</p>
-            <p id="missionarticle">Since its 1990 launch, the Hubble Space Telescope has changed our fundamental understanding of the universe</p>
-        </div>
-         <div class="Artemis">
-            <img src="./Images/missionpage/James web.png" alt="James webb">
-            <p id="missionheading">James Webb Space Telescope (December 25, 2021)</p>
-            <p id="missionarticle">Webb is the premier observatory of the next decade, serving thousands of astronomers worldwide. It studies every phase in the history of our Universe.</p>
-        </div>
-         <div class="Artemis">
-            <img src="./Images/missionpage/Juno.png" alt="Juno">
-            <p id="missionheading">Juno: Mission At Jupiter (August 5, 2011)</p>
-            <p id="missionarticle">Probing beneath Jupiter's dense clouds to answer questions about the origin and evolution of Jupiter, our solar system, and giant planets across the cosmos. </p>
-        </div>
-         <div class="Artemis">
-            <img src="./Images/missionpage/International space.png" alt="International Space Station">
-            <p id="missionheading">International Space Station</p>
-            <p id="missionarticle">The International Space Station Program brings together international flight crews, multiple launch vehicles, the international scientific research community and much more.</p>
-        </div>
-         <div class="Artemis">
-            <img src="./Images/missionpage/mars rover.png" alt="Mars rover  ">
-            <p id="missionheading">Artemis II (November 16, 2022)</p>
-            <p id="missionarticle">Four astronauts will venture around the Moon on Artemis II, the first crewed mission on NASA's path to establishing a long-term presence at the Moon for science and exploration.</p>
-        </div>
+        <!-- Commercial Crew -->
         <div class="Artemis">
-            <img src="./Images/missionpage/parker solar.png" alt="Parker solar">
-            <p id="missionheading">Parker Solar Probe (August 12, 2018)</p>
-            <p id="missionarticle">On a mission to “touch the Sun,” NASA's Parker Solar Probe became the first spacecraft to fly through the corona – the Sun’s upper atmosphere.</p>
+            <img class="mission-img" src="./Images/missionpage/Comercial-grew.png" alt="Commercial Crew">
+            <div class="Artemis-infos">
+                <p id="missionheading">Commercial Crew</p>
+                <p id="missionarticle">NASA’s Commercial Crew Program is delivering on its goal of safe, reliable, and
+                    cost-effective human transportation to and from the International Space Station.
+                </p>
+                <div class="dateplusagency">
+                    <div class="mission-smallcard"><img src="./images/Home/object/calender-icon.png"
+                            alt="calender-icon">
+                        <p>11/16/2020</p>
+                    </div>
+                    <div class="mission-smallcard"><img src="./images/Home/object/rocket-icon.png" alt="calender-icon">
+                        <p>Nasa</p>
+                    </div>
+                </div>
+            </div>
         </div>
+        <!-- Hubble Space Telescope -->
         <div class="Artemis">
-            <img src="./Images/missionpage/quest.png" alt="Quesst">
-            <p id="missionheading">Quesst (January 2024)</p>
-            <p id="missionarticle">NASA's mission to demonstrate how the X-59 can fly supersonic without generating loud sonic booms.</p>
+            <img class="mission-img" src="./Images/missionpage/Hubble.png" alt="Hubble Space Telescope">
+            <div class="Artemis-infos">
+                <p id="missionheading">Hubble Space Telescope</p>
+                <p id="missionarticle">Since its 1990 launch, the Hubble Space Telescope has changed our fundamental
+                    understanding of the universe
+                </p>
+                <div class="dateplusagency">
+                    <div class="mission-smallcard"><img src="./images/Home/object/calender-icon.png"
+                            alt="calender-icon">
+                        <p>04/24/1990</p>
+                    </div>
+                    <div class="mission-smallcard"><img src="./images/Home/object/rocket-icon.png" alt="calender-icon">
+                        <p>Nasa</p>
+                    </div>
+                </div>
+            </div>
         </div>
-         <div class="flight-test">
-            <img src="./Images/missionpage/Low earth orbit.png" alt="Flight Test">
-            <p id="missionheading">Low-Earth Orbit Flight Test of an Inflatable Decelerator (Ongoing since 2015)</p>
-            <p id="missionarticle">NASA’s LOFTID (Low-Earth Orbit Flight Test of an Inflatable Decelerator) is a groundbreaking project that tested a giant 6-meter inflatable heat shield.</p>
+        <!-- James Webb Space Telescope  -->
+        <div class="Artemis">
+            <img class="mission-img" src="./Images/missionpage/James-web.png" alt="James Webb Space Telescope">
+            <div class="Artemis-infos">
+                <p id="missionheading">James Webb Space Telescope </p>
+                <p id="missionarticle">Webb is the premier observatory of the next decade, serving thousands of
+                    astronomers worldwide. It studies every phase in the history of our Universe.
+                </p>
+                <div class="dateplusagency">
+                    <div class="mission-smallcard"><img src="./images/Home/object/calender-icon.png"
+                            alt="calender-icon">
+                        <p>12/25/2021</p>
+                    </div>
+                    <div class="mission-smallcard"><img src="./images/Home/object/rocket-icon.png" alt="calender-icon">
+                        <p>Nasa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Juno: Mission At Jupiter -->
+        <div class="Artemis">
+            <img class="mission-img" src="./Images/missionpage/Juno.png" alt="Juno">
+            <div class="Artemis-infos">
+                <p id="missionheading">Juno: Mission At Jupiter</p>
+                <p id="missionarticle">Probing beneath Jupiter's dense clouds to answer questions about the origin and
+                    evolution of Jupiter, our solar system, and giant planets across the cosmos.
+                </p>
+                <div class="dateplusagency">
+                    <div class="mission-smallcard"><img src="./images/Home/object/calender-icon.png"
+                            alt="calender-icon">
+                        <p>08/05/2011</p>
+                    </div>
+                    <div class="mission-smallcard"><img src="./images/Home/object/rocket-icon.png" alt="calender-icon">
+                        <p>Nasa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- International Space Station -->
+        <div class="Artemis">
+            <img class="mission-img" src="./Images/missionpage/International-space.png" alt="International Space ">
+            <div class="Artemis-infos">
+                <p id="missionheading">International Space Station</p>
+                <p id="missionarticle">The International Space Station Program brings together international flight
+                    crews, multiple launch vehicles, the international scientific research community and much more.
+                </p>
+                <div class="dateplusagency">
+                    <div class="mission-smallcard"><img src="./images/Home/object/calender-icon.png"
+                            alt="calender-icon">
+                        <p>11/20/1998</p>
+                    </div>
+                    <div class="mission-smallcard"><img src="./images/Home/object/rocket-icon.png" alt="calender-icon">
+                        <p>Nasa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Perseverance Mars Rover -->
+        <div class="Artemis">
+            <img class="mission-img" src="./Images/missionpage/mars-rover.png" alt="Perseverance Mars Rover">
+            <div class="Artemis-infos">
+                <p id="missionheading">Perseverance Mars Rover</p>
+                <p id="missionarticle">This rover and its aerial sidekick were assigned to study the geology of Mars and
+                    much more.
+                </p>
+                <div class="dateplusagency">
+                    <div class="mission-smallcard"><img src="./images/Home/object/calender-icon.png"
+                            alt="calender-icon">
+                        <p>07/30/2020</p>
+                    </div>
+                    <div class="mission-smallcard"><img src="./images/Home/object/rocket-icon.png" alt="calender-icon">
+                        <p>Nasa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Parker Solar Probe -->
+        <div class="Artemis">
+            <img class="mission-img" src="./Images/missionpage/parker-solar.png" alt="Parker Solar Probe">
+            <div class="Artemis-infos">
+                <p id="missionheading">Parker Solar Probe</p>
+                <p id="missionarticle">On a mission to “touch the Sun,” NASA's Parker Solar Probe became the first
+                    spacecraft to fly through the corona – the Sun’s upper atmosphere.
+                </p>
+                <div class="dateplusagency">
+                    <div class="mission-smallcard"><img src="./images/Home/object/calender-icon.png"
+                            alt="calender-icon">
+                        <p>08/12/2018</p>
+                    </div>
+                    <div class="mission-smallcard"><img src="./images/Home/object/rocket-icon.png" alt="calender-icon">
+                        <p>Nasa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Quesst  -->
+        <div class="Artemis">
+            <img class="mission-img" src="./Images/missionpage/quest.png" alt="Quesst ">
+            <div class="Artemis-infos">
+                <p id="missionheading">Quesst</p>
+                <p id="missionarticle">NASA's mission to demonstrate how the X-59 can fly supersonic without generating
+                    loud sonic booms
+                </p>
+                <div class="dateplusagency">
+                    <div class="mission-smallcard"><img src="./images/Home/object/calender-icon.png"
+                            alt="calender-icon">
+                        <p>11/16/2020</p>
+                    </div>
+                    <div class="mission-smallcard"><img src="./images/Home/object/rocket-icon.png" alt="calender-icon">
+                        <p>Nasa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- JUICE -->
+        <div class="Artemis">
+            <img class="mission-img" src="./Images/missionpage/juice.png" alt="JUICE">
+            <div class="Artemis-infos">
+                <p id="missionheading">JUICE</p>
+                <p id="missionarticle">JUICE launched on April 14, 2023, to study Jupiter’s icy moons—Ganymede,
+                    Callisto, and Europa—for potential signs of oceans and life.
+                </p>
+                <div class="dateplusagency">
+                    <div class="mission-smallcard"><img src="./images/Home/object/calender-icon.png"
+                            alt="calender-icon">
+                        <p>04/14/2023</p>
+                    </div>
+                    <div class="mission-smallcard"><img src="./images/Home/object/rocket-icon.png" alt="calender-icon">
+                        <p>ESA</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
- <footer class="footerbanner">
-    <div class="footercontainer">
-        <div class="footercontent">
-        <div class="fcrightpart">
-            <p><b>Legal</b></p>
-            <p>Terms of Service</p>
-            <p>Privacy Policy</p>
-            <p>Cookies</p>
-        </div>
-        <div class="fcrightpart fcmiddlepart">
-            <p>Information</p>
-            <p>FAQ</p>
-            <p>Blog</p>
-            <p>Support</p>
-        </div>
-        <div class="fcrightpart fcleftpart">
-            <p><b></b></p>
-            <p>About us</p>
-            <p>Careers</p>
-            <p>Contact us</p>
-        </div>
-        <div class="subsucription">
-            <p>Subsucribe</p>
-            <button>
-                Email address
-            </button>
-        </div>
-    </div>
-    <div class="line"></div>
-    <div class="bottomcontainer">
-        <div>
-            <img src="./Images/Header/headerlogo.png" alt="Logo">
-        </div>
-        <div class="terms">
-            <p>Terms</p>
-            <p>Privacy</p>
-            <p>Cookies</p>
-        </div>
-        <div class="social-links">
-            <img src="./Images/Footer/Linkedin.png" alt="">
-            <img src="./Images/Footer/Facebook.png" alt="">
-            <img src="./Images/Footer/Twitter.png" alt="">
-        </div>
-    </div>
-    </div>
-    
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col brand">
+                <div class="logo-footer">
+                    <img src="images/missions/logo.png" alt="" />
 
-</footer>
+                </div>
+                <p class="p-footer">
+                    Discover the wonders of the universe with beginner-friendly
+                    astronomy resources.
+                </p>
+                <div class="social-icons">
+                    <a href="#"><img src="images/missions/fb-Link.png" id="fb" alt="Facebook" /></a>
+                    <a href="#"><img src="images/missions/X-Link.png" id="X" alt="Twitter" /></a>
+                    <a href="#"><img src="images/missions/insta-Link.png" id="inst" alt="Instagram" /></a>
+                    <a href="#"><img src="images/missions/ytb-Link.png" id="ytp" alt="YouTube" /></a>
+                    <a href="#"><img src="images/missions/msg-Link.png" id="messg" alt="Email" /></a>
+                </div>
+            </div>
 
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#">Celestial Catalogue</a></li>
+                    <li><a href="#">News & Events</a></li>
+                    <li><a href="#">Space Missions</a></li>
+                    <li><a href="#">Astrophotography</a></li>
+                </ul>
+            </div>
 
+            <div class="footer-col">
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="#">Join Community</a></li>
+                    <li><a href="#">Forums</a></li>
+                    <li><a href="#">Photo Gallery</a></li>
+                    <li><a href="#">Contributors</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Beginner Guides</a></li>
+                    <li><a href="#">Equipment Reviews</a></li>
+                    <li><a href="#">Observation Tips</a></li>
+                    <li><a href="#">Sky Calendar</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>
+                Â© 2025 CosmicExplore. All rights reserved. | Explore the cosmos with
+                wonder.
+            </p>
+        </div>
+    </footer>
+<script src="script.js"></script>
 </body>
 
-</html>   
+</html>
