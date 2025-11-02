@@ -87,27 +87,6 @@
         <a href="mission.html">Missions</a>
         <a href="contacts.html">Contact us</a>
     </div>
-    <!-- === SIDEBAR=== -->
-
-    <!-- === JS TOGGLE === -->
-    <script>
-        const hamburger = document.querySelector(".hamburger");
-        const sidebar = document.querySelector(".sidebar");
-        const closeBtn = document.querySelector(".close-btn");
-
-        // Open sidebar
-        hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            sidebar.classList.add("active");
-        });
-
-        // Close sidebar
-        closeBtn.addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            sidebar.classList.remove("active");
-        });
-    </script>
-    <!-- === JS TOGGLE === -->
 
     <div class="frame">
         <div class="titlescontainer">
@@ -133,12 +112,13 @@
                 </div>
             </div>
         </div>
-        <div class="detailscontainer">
+        <div class="detailscontainer " id="Form">
             <div class="userinfo">
                 <div class="fullname">
                     <div>
                         <label for="firstname">First name</label>
                         <input type="text" name="firstname">
+                         <div class="error" id="nameError">Name must be at least 3 characters.</div>
                     </div>
                     <div>
                         <label for="lastname">Last name</label>
@@ -148,11 +128,13 @@
                 <div class="userinformations">
                     <div>
                         <label for="email">Email</label>
-                        <input type="email" name="email">
+                        <input type="text" name="email">
+                        <div class="error" id="emailError">Please enter a valid email address.</div>
                     </div>
                     <div>
                         <label for="phonenumber">Phone number</label>
                         <input type="number" name="phonenumber">
+                        <div class="error" id="phoneError">Enter a valid phone number (10–13 digits).</div>
                     </div>
                 </div>
 
@@ -283,6 +265,7 @@
             </p>
         </div>
     </footer>
+    <script src="contactvalidation.js"></script>
 </body>
 
 </html>
