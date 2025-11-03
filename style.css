@@ -579,7 +579,7 @@ h1 {
   background: #23232f;
   color: #efefef;
   padding: 30px;
-  margin: 100px auto;
+  margin: 40px auto;
   width: 450px;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
@@ -592,15 +592,14 @@ h1 {
   color: #bbb;
 }
 
-label {
+.modal-content label {
   display: block;
   margin-top: 18px;
   margin-bottom: 4px;
   font-weight: 600;
 }
 
-input,
-textarea {
+.input-textarea {
   width: 100%;
   height: 40px;
   padding: 8px 12px;
@@ -612,13 +611,13 @@ textarea {
   color: #fff;
 }
 
-textarea {
+.modal-content textarea {
   resize: vertical;
   min-height: 50px;
   max-height: 120px;
 }
 
-button[type="submit"] {
+.modal-content button[type="submit"] {
   background: #191920;
   color: #eee;
   border: none;
@@ -631,7 +630,7 @@ button[type="submit"] {
   transition: background 0.2s;
 }
 
-button[type="submit"]:hover {
+.modal-content button[type="submit"]:hover {
   background: #444457;
 }
 
@@ -987,7 +986,7 @@ button[type="submit"]:hover {
   width: 295px;
   font-weight: 800;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 0;
 }
 
@@ -1979,7 +1978,7 @@ ease; */
 }
 
 .message {
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 #message {
@@ -2040,7 +2039,6 @@ ease; */
   gap: 20px;
   width: 339px;
   height: 221px;
-
 }
 
 .livechat-container {

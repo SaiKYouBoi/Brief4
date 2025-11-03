@@ -126,23 +126,23 @@
         <div class="modal-content">
             <span id="closeModalBtn" title="Close Modal">&times;</span>
             <form id="missionForm">
-                <h2 style="margin-bottom: 10px;">Add Space Mission</h2>
+                <h2 id="modalmodif" style="margin-bottom: 10px;">Add Space Mission</h2>
                 <label for="missionName">Mission Name</label>
-                <input type="text" id="missionName" name="missionName" required />
+                <input class="input-textarea" type="text" id="missionName" name="missionName" required />
 
                 <label for="missionAgency">Agency</label>
-                <input type="text" id="missionAgency" name="missionAgency" required />
+                <input class="input-textarea" type="text" id="missionAgency" name="missionAgency" required />
                 
                 <label for="missionImage">Mission Image</label>
-                <input type="file" id="missionImage" name="missionImage" accept="image/*" />
+                <input class="input-textarea" type="file" id="missionImage" name="missionImage" accept="image/*" />
                 
                 <label for="missionDate">Date</label>
-                <input type="date" id="missionDate" name="missionDate" required />
+                <input class="input-textarea" type="date" id="missionDate" name="missionDate" required />
 
                 <label for="missionDesc">Description</label>
-                <textarea id="missionDesc" name="missionDesc" required></textarea>
+                <textarea class="input-textarea" id="missionDesc" name="missionDesc" required></textarea>
 
-                <button type="submit">Add Mission</button>
+                <button id="modalmodifBtn" type="submit">Add Mission</button>
             </form>
         </div>
     </div>
@@ -153,8 +153,9 @@
             <div class="miss-img-container">
                 <img class="mission-img" src="./Images/missionpage/Artemis.png" alt="Artemis">
                 <div class="crudbtns">
-                    <button><i class="fa-solid fa-trash delete"></i></i></button>
+                    <button id="deletebtn"><i class="fa-solid fa-trash delete"></i></i></button>
                     <button><i class="fa-solid fa-pen modif"></i></button>
+                    <input type="hidden" id="missionId">
                     <button><i class="fa-solid fa-heart fav"></i></button>
                 </div>
             </div>
