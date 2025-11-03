@@ -12,7 +12,7 @@
     hamburger.classList.remove("active");
     sidebar.classList.remove("active");
   });
-  
+
 
   //fetching
   function fetchMissions() {
@@ -155,9 +155,6 @@
 });
 
 
-
-
-
   // deleting a mission
   function deleteMissionById(id) {
     const confirmDelete = confirm("Are you sure you want to delete this mission?");
@@ -192,3 +189,26 @@
   modal.style.display = "block";
 }
 
+
+// selec filter
+const agencyFilter = document.getElementById("agency");
+
+agencyFilter.addEventListener("change", filterMissions);
+searchInput.addEventListener("keyup", filterMissions);
+
+function filterMissions() {
+  const data = fetchMissions() || [];
+  const searchText = searchInput.value.toLowerCase();
+  const selectedAgency = agencyFilter.value;
+  //console.log(selectedAgency)
+  const filtered = data.filter(m => {
+    const matchesSearch =
+      m.name.toLowerCase().includes(searchText) ||
+      m.agency.toLowerCase().includes(searchText);
+    const matchesAgency =
+      selectedAgency === "All agencies" || m.agency === selectedAgency;
+    return matchesSearch && matchesAgency;
+  });
+
+  displayMission(filtered);
+}
