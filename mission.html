@@ -122,7 +122,7 @@
     </div>
 
     <!-- adding a mission -->
-   <div id="modal">
+    <div id="modal">
         <div class="modal-content">
             <span id="closeModalBtn" title="Close Modal">&times;</span>
             <form id="missionForm">
@@ -132,7 +132,10 @@
 
                 <label for="missionAgency">Agency</label>
                 <input type="text" id="missionAgency" name="missionAgency" required />
-
+                
+                <label for="missionImage">Mission Image</label>
+                <input type="file" id="missionImage" name="missionImage" accept="image/*" />
+                
                 <label for="missionDate">Date</label>
                 <input type="date" id="missionDate" name="missionDate" required />
 

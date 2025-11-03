@@ -8,7 +8,6 @@ hamburger.addEventListener("click", () => {
   sidebar.classList.add("active");
 });
 
-
 closeBtn.addEventListener("click", () => {
   hamburger.classList.remove("active");
   sidebar.classList.remove("active");
@@ -62,24 +61,23 @@ function loadMissions() {
 }
 loadMissions();
 
-
 searchInput.onkeyup = function searchFilter() {
   const filtredData = [];
-  
+
   const data = fetchMissions();
   container.innerHTML = "";
   data.forEach((m) => {
-  // const agencySelect = document.getElementById("agency");
-  // const selectedAgency = agencySelect.value.toLowerCase();
-  // const agencyFilter = !selectedAgency || selectedAgency === 'all' || m.agency.toLowerCase() === selectedAgency;
+    // const agencySelect = document.getElementById("agency");
+    // const selectedAgency = agencySelect.value.toLowerCase();
+    // const agencyFilter = !selectedAgency || selectedAgency === 'all' || m.agency.toLowerCase() === selectedAgency;
     if (
-      (m.name
+      m.name
         .toLocaleLowerCase()
         .startsWith(searchInput.value.toLocaleLowerCase()) ||
       m.agency
         .toLocaleLowerCase()
-        .startsWith(searchInput.value.toLocaleLowerCase()))
-        //  && agencyFilter
+        .startsWith(searchInput.value.toLocaleLowerCase())
+      //  && agencyFilter
     ) {
       filtredData.push(m);
     }
@@ -88,22 +86,50 @@ searchInput.onkeyup = function searchFilter() {
 };
 
 // adding mission modal
-      const openBtn = document.getElementById('openModalBtn');
-      const modal = document.getElementById('modal');
-      const closemodelBtn = document.getElementById('closeModalBtn');
-      const missionForm = document.getElementById('missionForm');
+const openBtn = document.getElementById("openModalBtn");
+const modal = document.getElementById("modal");
+const closemodelBtn = document.getElementById("closeModalBtn");
+const missionForm = document.getElementById("missionForm");
 
-      openBtn.onclick = function () {
-        modal.style.display = 'block';
-      };
+openBtn.onclick = function () {
+  modal.style.display = "block";
+};
 
-      closemodelBtn.onclick = function () {
-        modal.style.display = 'none';
-      };
+closemodelBtn.onclick = function () {
+  modal.style.display = "none";
+};
 
-      //close modal when clicking outside modal-content
-      window.onclick = function (event) {
-        if (event.target === modal) {
-          modal.style.display = 'none';
-        }
-      };
+//close modal when clicking outside modal-content
+window.onclick = function (event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+};
+
+// adding a mession
+// Handle Add Mission form submission
+missionForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const mission = {
+    name: document.getElementById("missionName").value,
+    agency: document.getElementById("missionAgency").value,
+    date: document.getElementById("missionDate").value,
+    description: document.getElementById("missionDesc").value,
+    image: "./images/missionpage/default-mission.png", // default image if none added
+  };
+
+  // Get existing missions
+  const missions = JSON.parse(localStorage.getItem("missions")) || [];
+
+  // Add new mission
+  missions.push(mission);
+
+  // Save back to localStorage
+  localStorage.setItem("missions", JSON.stringify(missions));
+
+  // Close modal and refresh display
+  modal.style.display = "none";
+  missionForm.reset();
+  loadMissions();
+});
