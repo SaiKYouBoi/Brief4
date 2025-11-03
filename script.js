@@ -1,3 +1,19 @@
+// Sidebar
+const hamburger = document.querySelector(".hamburger");
+const sidebar = document.querySelector(".sidebar");
+const closeBtn = document.querySelector(".close-btn");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  sidebar.classList.add("active");
+});
+
+
+closeBtn.addEventListener("click", () => {
+  hamburger.classList.remove("active");
+  sidebar.classList.remove("active");
+});
+
 function fetchMissions() {
   const missions = JSON.parse(localStorage.getItem("missions"));
   return missions;
@@ -8,7 +24,14 @@ const searchInput = document.getElementById("search-filter");
 
 function card(data) {
   return `<div class="Artemis">
-            <img class="mission-img" src="${data.image}" alt="Artemis">
+            <div class="miss-img-container">
+                <img class="mission-img" src="${data.image}" alt="Artemis"> 
+                <div class="crudbtns">
+                    <button><i class="fa-solid fa-trash delete"></i></i></button>
+                    <button><i class="fa-solid fa-pen modif"></i></button>
+                    <button><i class="fa-solid fa-heart fav"></i></button>
+                </div>
+            </div>
             <div class="Artemis-infos">
                 <p id="missionheading">${data.name}</p>
                 <p id="missionarticle">${data.description}
@@ -39,18 +62,24 @@ function loadMissions() {
 }
 loadMissions();
 
+
 searchInput.onkeyup = function searchFilter() {
   const filtredData = [];
+  
   const data = fetchMissions();
   container.innerHTML = "";
   data.forEach((m) => {
+  // const agencySelect = document.getElementById("agency");
+  // const selectedAgency = agencySelect.value.toLowerCase();
+  // const agencyFilter = !selectedAgency || selectedAgency === 'all' || m.agency.toLowerCase() === selectedAgency;
     if (
-      m.name
+      (m.name
         .toLocaleLowerCase()
         .startsWith(searchInput.value.toLocaleLowerCase()) ||
       m.agency
         .toLocaleLowerCase()
-        .startsWith(searchInput.value.toLocaleLowerCase())
+        .startsWith(searchInput.value.toLocaleLowerCase()))
+        //  && agencyFilter
     ) {
       filtredData.push(m);
     }
@@ -58,5 +87,23 @@ searchInput.onkeyup = function searchFilter() {
   displayMission(filtredData);
 };
 
+// adding mission modal
+      const openBtn = document.getElementById('openModalBtn');
+      const modal = document.getElementById('modal');
+      const closemodelBtn = document.getElementById('closeModalBtn');
+      const missionForm = document.getElementById('missionForm');
 
+      openBtn.onclick = function () {
+        modal.style.display = 'block';
+      };
 
+      closemodelBtn.onclick = function () {
+        modal.style.display = 'none';
+      };
+
+      //close modal when clicking outside modal-content
+      window.onclick = function (event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      };

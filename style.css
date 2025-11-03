@@ -563,6 +563,78 @@ h1 {
   color: white;
 }
 
+/* adding a mission */
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 20, 20, 0.90);
+  display: none;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #23232f;
+  color: #efefef;
+  padding: 30px;
+  margin: 100px auto;
+  width: 450px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+}
+
+#closeModalBtn {
+  float: right;
+  cursor: pointer;
+  font-size: 1.7em;
+  color: #bbb;
+}
+
+label {
+  display: block;
+  margin-top: 18px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  width: 100%;
+  height: 40px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border: var(--body-color) 1px solid;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background: #30303a;
+  color: #fff;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 50px;
+  max-height: 120px;
+}
+
+button[type="submit"] {
+  background: #191920;
+  color: #eee;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: #444457;
+}
+
 .community-title {
   display: flex;
   gap: 20px;
@@ -826,6 +898,60 @@ h1 {
   width: 89%;
   margin: auto;
   margin-bottom: 100px;
+
+}
+
+/* crud buttons */
+.miss-img-container img {
+  width: 273px;
+  height: 282px;
+  border-bottom-left-radius: 24px;
+  border-top-left-radius: 24px;
+}
+
+.crudbtns {
+  position: absolute;
+  left: 1.5%;
+  bottom: 2.5%;
+}
+
+.crudbtns i {
+  color: var(--body-color);
+}
+
+.crudbtns button {
+  border: 1px var(--body-color) solid;
+  border-radius: 10px;
+  padding: 4px;
+  background-color: white;
+}
+
+.delete:hover {
+  color: red;
+}
+
+.fav:hover {
+  color: red;
+}
+
+.modif:hover {
+  color: black;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
 }
 
 .Artemis {
@@ -835,8 +961,10 @@ h1 {
   height: 282px;
   border: #474747 1px solid;
   border-radius: 24px;
-
+  position: relative;
 }
+
+
 
 .mission-img {
   width: 273px;
@@ -1357,24 +1485,23 @@ h1 {
   border: #FFFFFF 1px solid;
   transition: background-color 0.3s 
 ease; */
-font-size: var(--mobile-body);
-    font-weight: var(--font-semibold);
-    color: white;
-    background-color: #000000;
-    border: #FFFFFF 1px solid;
-    border-radius: 50px;
-    width: 100%;
-    max-width: 350px;
-    height: 50px;
-    margin-top: 16px;
-    padding: 12px 24px;
-    transition: background-color 0.3s 
-ease
+  font-size: var(--mobile-body);
+  font-weight: var(--font-semibold);
+  color: white;
+  background-color: #000000;
+  border: #FFFFFF 1px solid;
+  border-radius: 50px;
+  width: 100%;
+  max-width: 350px;
+  height: 50px;
+  margin-top: 16px;
+  padding: 12px 24px;
+  transition: background-color 0.3s ease
 }
 
 .moonherosection button:hover {
-    color: #000000;
-    background-color: #FFFFFF;
+  color: #000000;
+  background-color: #FFFFFF;
 }
 
 .sitemission {
@@ -1409,7 +1536,8 @@ ease
   width: 1152px;
 
 }
-.techcontent img{
+
+.techcontent img {
   border: #474747 1px solid;
   border-radius: 24px;
 }
@@ -1446,13 +1574,12 @@ ease
   border: #FFFFFF 1px solid;
   width: 266px;
   height: 66px;
-transition: background-color 0.3s 
-ease;
+  transition: background-color 0.3s ease;
 }
 
 .techdetails button:hover {
-    color: #000000;
-    background-color: #FFFFFF;
+  color: #000000;
+  background-color: #FFFFFF;
 }
 
 .ourstory {
@@ -1559,13 +1686,12 @@ ease;
   height: 57px;
   border-radius: 20px;
   margin-left: 277px;
-  transition: background-color 0.3s 
-ease;
+  transition: background-color 0.3s ease;
 }
 
 .ourvision-content button:hover {
-    color: #FFFFFF;
-    background-color: #000000;
+  color: #FFFFFF;
+  background-color: #000000;
 }
 
 .team {
@@ -1582,7 +1708,7 @@ ease;
 
 
 .team h1 {
-  
+
   font-size: 34px;
   color: white;
   font-weight: 400;
@@ -1591,24 +1717,25 @@ ease;
 }
 
 .team p {
-  
+
   font-size: 24px;
   color: white;
   font-weight: 100;
   text-align: center;
 }
+
 .aboutus-title {
   color: var(--mission-font-color);
   margin-top: 56px;
   margin-bottom: 45px;
-  
+
 }
 
 .aboutus-title span {
   color: #4B6FCF;
 }
 
-.values h1{
+.values h1 {
   color: var(--mission-font-color);
   font-weight: var(--font-bold);
   text-align: center;
@@ -1631,7 +1758,7 @@ ease;
   margin-bottom: 67px;
   align-items: center;
   place-items: center;
-  background-color: #919191 ;
+  background-color: #919191;
   border-radius: 40px;
 }
 
@@ -1879,9 +2006,10 @@ ease;
   border-radius: 5px;
   background-color: #1B1B1B;
 }
-.send-button:hover{
-    color: #000000;
-    background-color: #FFFFFF;
+
+.send-button:hover {
+  color: #000000;
+  background-color: #FFFFFF;
 }
 
 .messagebutton {
@@ -1901,7 +2029,7 @@ ease;
   margin-bottom: 16px;
 }
 
-.elp-container img{
+.elp-container img {
   width: 50px;
   height: auto;
 }
