@@ -229,6 +229,19 @@ function filterMissions() {
   displayMission(filtered);
 }
 
+// year filter
+
+
+
+
+
+
+
+
+
+
+
+
 
 // tab switcher
 const tabs = document.querySelectorAll(".tab");

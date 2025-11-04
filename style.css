@@ -98,6 +98,12 @@ header img {
     linear-gradient(120deg, #1E1E40, #4B6FCF, #9AB5FF) border-box;
 }
 
+#contactsuss{
+  background:
+    linear-gradient(black, black) padding-box,
+    linear-gradient(120deg, #CB732B, #4F3B1A);
+}
+
 .rightone {
   display: flex;
   width: 500px;
@@ -2109,4 +2115,10 @@ ease; */
 .invalid {
   border-bottom: 2px solid #e74c3c !important;
   transition: border 0.3s ease;
+}
+
+
+@media (min-width: 768px) {
+
+
 }
