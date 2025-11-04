@@ -67,11 +67,6 @@ function displayMission(data) {
 }
 
 // Loading the missions
-// function loadMissions() {
-//   const data = fetchMissions();
-//   displayMission(data);
-// }
-
 function loadMissions() {
   if (currentTab === "all") {
     displayMission(fetchMissions() || []);
@@ -83,7 +78,7 @@ function loadMissions() {
 loadMissions();
 
 // Search filter
-searchInput.onkeyup = function searchFilter() {
+searchInput.onkeyup = function filterMissions() {
   const filtredData = [];
 
   const data = fetchMissions();
@@ -145,6 +140,8 @@ missionForm.addEventListener("submit", (e) => {
       image: imageFile
         ? reader.result
         : missions.find((m) => m.id === Number(id))?.image || "",
+      // Preserve the favorite property when editing
+      favorite: id ? missions.find((m) => m.id === Number(id))?.favorite || false : false
     };
 
     if (id) {
@@ -152,7 +149,8 @@ missionForm.addEventListener("submit", (e) => {
       const index = missions.findIndex((m) => m.id === Number(id));
       missions[index] = missionData;
     } else {
-      // add new
+      // add new - default favorite to false for new missions
+      missionData.favorite = false;
       missions.push(missionData);
     }
 
@@ -206,6 +204,12 @@ function editMission(id) {
   modal.style.display = "block";
 }
 
+// Year filter
+const yearFilter = document.getElementById("myear");
+
+// Add event listener for year filter
+yearFilter.addEventListener("change", filterMissions);
+
 // selec filter
 const agencyFilter = document.getElementById("agency");
 
@@ -213,35 +217,54 @@ agencyFilter.addEventListener("change", filterMissions);
 searchInput.addEventListener("keyup", filterMissions);
 
 function filterMissions() {
-  const data = fetchMissions() || [];
+  let data = fetchMissions() || [];
+  
+  // If we're in the favorites tab, only show favorites
+  if (currentTab === "fav") {
+    data = data.filter(m => m.favorite);
+  }
+  
   const searchText = searchInput.value.toLowerCase();
   const selectedAgency = agencyFilter.value;
-  //console.log(selectedAgency)
+  const selectedYear = yearFilter.value;
+  
   const filtered = data.filter((m) => {
     const matchesSearch =
       m.name.toLowerCase().includes(searchText) ||
       m.agency.toLowerCase().includes(searchText);
     const matchesAgency =
       selectedAgency === "All agencies" || m.agency === selectedAgency;
-    return matchesSearch && matchesAgency;
+    
+    // Add year filtering logic
+    let matchesYear = true;
+    if (selectedYear !== "All years") {
+      const missionYear = extractYearFromDate(m.date);
+      matchesYear = missionYear === selectedYear;
+    }
+    
+    return matchesSearch && matchesAgency && matchesYear;
   });
 
   displayMission(filtered);
 }
 
-// year filter
-
-
-
-
-
-
-
-
-
-
-
-
+// Helper function to extract year from date
+function extractYearFromDate(dateString) {
+  if (!dateString) return "";
+  
+  // Handle different date formats
+  if (dateString.includes('/')) {
+    // Format: DD/MM/YYYY
+    const parts = dateString.split('/');
+    return parts[2] || parts[0]; // Return YYYY part
+  } else if (dateString.includes('-')) {
+    // Format: YYYY-MM-DD
+    return dateString.split('-')[0];
+  }
+  
+  // If it's just a year, return as is
+  return dateString;
+}
 
 // tab switcher
 const tabs = document.querySelectorAll(".tab");
@@ -255,14 +278,10 @@ tabs.forEach((tab) => {
 
     currentTab = tab.value; // update current tab
 
-    if (currentTab === "all") {
-      displayMission(fetchMissions() || []);
-    } else if (currentTab === "fav") { 
-      showFavourites();
-    }
+    // Use filterMissions to respect all active filters
+    filterMissions();
   });
 });
-
 
 // fav button toggle
 function toggleFavorite(id) {
@@ -280,11 +299,8 @@ function toggleFavorite(id) {
   loadMissions();
 }
 
-
 //favoutites
 function showFavourites() {
-  const missions = JSON.parse(localStorage.getItem("missions")) || [];
-  const favs = missions.filter(m => m.favorite);
-  displayMission(favs);
+    filterMissions();
 }
 
