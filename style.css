@@ -916,6 +916,11 @@ h1 {
 
 .crudbtns i {
   color: var(--body-color);
+  transition: color 0.3s ease;
+}
+
+.crudbtns i.fav.active {
+  color: red;
 }
 
 .crudbtns button {
@@ -2095,7 +2100,7 @@ ease; */
   transform: translateY(0);
 }
 
-/* --- Input Validation Styles --- */
+/*Input Validation Styles*/
 .valid {
   border-bottom: 2px solid #2ecc71 !important;
   transition: border 0.3s ease;

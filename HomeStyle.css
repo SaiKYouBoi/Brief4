@@ -1007,7 +1007,7 @@ footer {
     border-bottom: var(--body-color) 1px solid;
 }
 
-.tabs-buttons button{
+.tab{
     font-size: 16px;
     font-weight: var(--font-medium);
     color: var(--body-color);
@@ -1018,7 +1018,7 @@ footer {
     height: 100%;
 }
 
-.tabs-buttons button:hover{
+.ifactive{
     font-weight: var(--font-semibold);
     border-bottom: #878787 solid 3px;
 }
