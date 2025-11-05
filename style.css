@@ -98,7 +98,7 @@ header img {
     linear-gradient(120deg, #1E1E40, #4B6FCF, #9AB5FF) border-box;
 }
 
-#contactsuss{
+#contactsuss {
   background:
     linear-gradient(black, black) padding-box,
     linear-gradient(120deg, #CB732B, #4F3B1A);
@@ -2117,7 +2117,84 @@ ease; */
   transition: border 0.3s ease;
 }
 
+
+
+/* sidebr for favourites */
+#sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 640px;
+  height: 100vh;
+  background: #201f1f;
+  color: white;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1001;
+  padding: 30px;
+  box-shadow: -3px 0 8px rgba(0, 0, 0, 0.4);
+}
+
+#sidebar h2 {
+  font-size: var(--desktop-h3);
+  margin-top: 0;
+}
+
+#close-sidebar {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+/* Overlay */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+#overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.open-sidebar {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  position: absolute;
+  right: 2rem;
+
+}
+
+.open-sidebar i {
+  color: white;
+  font-size: 20px;
+}
+
+.open-sidebar p {
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+.open-sidebar p:hover{
+  color: var(--body-color);
+  font-weight: var(--font-bold);
+  font-size: 16px;
+} 
+
 @media (max-width: 600px) {
- 
   
 }

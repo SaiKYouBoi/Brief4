@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/HomeStyle.css">
     <link rel="stylesheet" href="/src/output.css">
 
-
     <!-- Render All elements normally -->
     <link rel="stylesheet" href="/normalize.css">
 
@@ -75,6 +74,11 @@
             <a href="mission.html">Missions</a>
             <a href="contacts.html">Contact us</a>
         </nav>
+        <div class="open-sidebar" id="open-sidebar">
+            <i class="fa-regular fa-heart"></i>
+            <p>Favourite</p>
+        </div>
+
 
         <div class="hamburger">
             <span></span>
@@ -93,8 +97,15 @@
         <a href="mission.html">Missions</a>
         <a href="contacts.html">Contact us</a>
     </div>
-    <div class="missionherosection">
 
+    <!-- Sidebar for favourites -->
+    <div id="sidebar">
+        <button id="close-sidebar">&times;</button>
+        <h2>My Favourite</h2>
+    </div>
+    <div id="overlay"></div>
+    <!-- End of Sidebar for favourites -->
+    <div class="missionherosection">
         <h1>Space <span class="missions-span">Missions</span></h1>
         <p> AstroTech Studio proudly presents a journey through some of the most iconic and groundbreaking space
             missions in human history from the first steps on the Moon to deep space exploration. </p>
@@ -142,10 +153,10 @@
 
                 <label for="missionAgency">Agency</label>
                 <input class="input-textarea" type="text" id="missionAgency" name="missionAgency" required />
-                
+
                 <label for="missionImage">Mission Image</label>
                 <input class="input-textarea" type="file" id="missionImage" name="missionImage" accept="image/*" />
-                
+
                 <label for="missionDate">Date</label>
                 <input class="input-textarea" type="date" id="missionDate" name="missionDate" required />
 

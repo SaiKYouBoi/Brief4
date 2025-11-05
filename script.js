@@ -70,7 +70,8 @@ function displayMission(data) {
 function loadMissions() {
   if (currentTab === "all") {
     displayMission(fetchMissions() || []);
-  } else if (currentTab === "fav") { // Changed from "favs" to "fav"
+  } else if (currentTab === "fav") {
+    // Changed from "favs" to "fav"
     showFavourites();
   }
 }
@@ -141,7 +142,9 @@ missionForm.addEventListener("submit", (e) => {
         ? reader.result
         : missions.find((m) => m.id === Number(id))?.image || "",
       // Preserve the favorite property when editing
-      favorite: id ? missions.find((m) => m.id === Number(id))?.favorite || false : false
+      favorite: id
+        ? missions.find((m) => m.id === Number(id))?.favorite || false
+        : false,
     };
 
     if (id) {
@@ -218,30 +221,30 @@ searchInput.addEventListener("keyup", filterMissions);
 
 function filterMissions() {
   let data = fetchMissions() || [];
-  
+
   // If we're in the favorites tab, only show favorites
   if (currentTab === "fav") {
-    data = data.filter(m => m.favorite);
+    data = data.filter((m) => m.favorite);
   }
-  
+
   const searchText = searchInput.value.toLowerCase();
   const selectedAgency = agencyFilter.value;
   const selectedYear = yearFilter.value;
-  
+
   const filtered = data.filter((m) => {
     const matchesSearch =
       m.name.toLowerCase().includes(searchText) ||
       m.agency.toLowerCase().includes(searchText);
     const matchesAgency =
       selectedAgency === "All agencies" || m.agency === selectedAgency;
-    
+
     // Add year filtering logic
     let matchesYear = true;
     if (selectedYear !== "All years") {
       const missionYear = extractYearFromDate(m.date);
       matchesYear = missionYear === selectedYear;
     }
-    
+
     return matchesSearch && matchesAgency && matchesYear;
   });
 
@@ -251,17 +254,17 @@ function filterMissions() {
 // Helper function to extract year from date
 function extractYearFromDate(dateString) {
   if (!dateString) return "";
-  
+
   // Handle different date formats
-  if (dateString.includes('/')) {
+  if (dateString.includes("/")) {
     // Format: DD/MM/YYYY
-    const parts = dateString.split('/');
+    const parts = dateString.split("/");
     return parts[2] || parts[0]; // Return YYYY part
-  } else if (dateString.includes('-')) {
+  } else if (dateString.includes("-")) {
     // Format: YYYY-MM-DD
-    return dateString.split('-')[0];
+    return dateString.split("-")[0];
   }
-  
+
   // If it's just a year, return as is
   return dateString;
 }
@@ -286,7 +289,7 @@ tabs.forEach((tab) => {
 // fav button toggle
 function toggleFavorite(id) {
   const missions = JSON.parse(localStorage.getItem("missions")) || [];
-  const mission = missions.find(m => m.id === id);
+  const mission = missions.find((m) => m.id === id);
   if (!mission) return;
 
   // toggle
@@ -301,6 +304,26 @@ function toggleFavorite(id) {
 
 //favoutites
 function showFavourites() {
-    filterMissions();
+  filterMissions();
 }
 
+// the script for the sidebar
+const openSidebarEl = document.getElementById("open-sidebar");
+const closeSidebarEl = document.getElementById("close-sidebar");
+const sidebarEl = document.getElementById("sidebar");
+const overlayEl = document.getElementById("overlay");
+
+openSidebarEl.addEventListener("click", () => {
+  sidebarEl.style.transform = "translateX(0)";
+  overlayEl.classList.add("active");
+});
+
+closeSidebarEl.addEventListener("click", () => {
+  sidebarEl.style.transform = "translateX(100%)";
+  overlayEl.classList.remove("active");
+});
+
+overlayEl.addEventListener("click", () => {
+  sidebarEl.style.transform = "translateX(100%)";
+  overlayEl.classList.remove("active");
+});
