@@ -176,7 +176,7 @@ body {
     margin-bottom: 60px;
     padding: 30px;
     margin-top: 70px;
-    background-image: url('./images/Home/herobg.png');
+    background-image: url('./Images/Home/herobg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -279,7 +279,7 @@ body {
 }
 
 .rightobject {
-    background-image: url('./images/Home/object/Mars.png');
+    background-image: url('./Images/Home/object/Mars.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -308,7 +308,7 @@ body {
 }
 
 .orionids {
-    background-image: url('./images/Home/object/Orionids-image.png');
+    background-image: url('./Images/Home/object/Orionids-image.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -325,7 +325,7 @@ body {
 }
 
 .lunar {
-    background-image: url('./images/Home/object/lunar-eclipse.png');
+    background-image: url('./Images/Home/object/lunar-eclipse.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -509,7 +509,7 @@ body {
     margin-bottom: 60px;
     padding: 30px;
     margin-top: 70px;
-    background-image: url('./images/Home/AstronomyEnthusiasts/webb-tarantula.png');
+    background-image: url('./Images/Home/AstronomyEnthusiasts/webb-tarantula.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

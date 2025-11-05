@@ -13,6 +13,99 @@ closeBtn.addEventListener("click", () => {
   sidebar.classList.remove("active");
 });
 
+// Initialize
+window.addEventListener("DOMContentLoaded", () => {
+  const missions = JSON.parse(localStorage.getItem("missions")) || [];
+  if (missions.length === 0) {
+    const defaultMissions = [
+      {
+    "id": 1,
+    "name": "Artemis II",
+    "agency": "NASA",
+    "description": "Four astronauts will venture around the Moon on Artemis II, the first crewed mission on NASA's path to establishing a long-term presence at the Moon for science and exploration.",
+    "date": "2026-02-05",
+    "image": "./Images/missionpage/Artemis.png"
+  },
+  {
+    "id": 2,
+    "name": "Commercial Crew",
+    "agency": "NASA",
+    "description": "NASA’s Commercial Crew Program is delivering on its goal of safe, reliable, and cost-effective human transportation to and from the International Space Station.",
+    "date": "2020-11-16",
+    "image": "./Images/missionpage/Comercial-grew.png"
+  },
+  {
+    "id": 3,
+    "name": "Hubble Space Telescope",
+    "agency": "NASA",
+    "description": "Since its 1990 launch, the Hubble Space Telescope has changed our fundamental understanding of the universe.",
+    "date": "1990-04-24",
+    "image": "./Images/missionpage/Hubble.png"
+  },
+  {
+    "id": 4,
+    "name": "James Webb Space Telescope",
+    "agency": "NASA",
+    "description": "Webb is the premier observatory of the next decade, serving thousands of astronomers worldwide. It studies every phase in the history of our Universe.",
+    "date": "2021-12-25",
+    "image": "./Images/missionpage/James-web.png"
+  },
+  {
+    "id": 5,
+    "name": "Juno: Mission At Jupiter",
+    "agency": "NASA",
+    "description": "Probing beneath Jupiter's dense clouds to answer questions about the origin and evolution of Jupiter, our solar system, and giant planets across the cosmos.",
+    "date": "2011-08-05",
+    "image": "./Images/missionpage/Juno.png"
+  },
+  {
+    "id": 6,
+    "name": "International Space Station",
+    "agency": "NASA",
+    "description": "The International Space Station Program brings together international flight crews, multiple launch vehicles, the international scientific research community and much more.",
+    "date": "1998-11-20",
+    "image": "./Images/missionpage/International-space.png"
+  },
+  {
+    "id": 7,
+    "name": "Perseverance Mars Rover",
+    "agency": "NASA",
+    "description": "This rover and its aerial sidekick were assigned to study the geology of Mars and much more.",
+    "date": "2020-07-30",
+    "image": "./Images/missionpage/mars-rover.png"
+  },
+  {
+    "id": 8,
+    "name": "Parker Solar Probe",
+    "agency": "NASA",
+    "description": "On a mission to “touch the Sun,” NASA's Parker Solar Probe became the first spacecraft to fly through the corona – the Sun’s upper atmosphere.",
+    "date": "2018-08-12",
+    "image": "./Images/missionpage/parker-solar.png"
+  },
+  {
+    "id": 9,
+    "name": "Quesst",
+    "agency": "NASA",
+    "description": "NASA's mission to demonstrate how the X-59 can fly supersonic without generating loud sonic booms.",
+    "date": "2020-11-16",
+    "image": "./Images/missionpage/quest.png"
+  },
+  {
+    "id": 10,
+    "name": "JUICE",
+    "agency": "ESA",
+    "description": "JUICE launched on April 14, 2023, to study Jupiter’s icy moons—Ganymede, Callisto, and Europa—for potential signs of oceans and life.",
+    "date": "2023-04-14",
+    "image": "./Images/missionpage/juice.png"
+  }
+    ];
+    localStorage.setItem("missions", JSON.stringify(defaultMissions));
+  }
+
+  loadMissions();
+});
+
+
 let currentTab = "all";
 
 //fetching
