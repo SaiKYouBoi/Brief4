@@ -12,7 +12,8 @@ closeBtn.addEventListener("click", () => {
   hamburger.classList.remove("active");
   sidebar.classList.remove("active");
 });
-let currentTab = "all"; // default
+
+let currentTab = "all";
 
 //fetching
 function fetchMissions() {
@@ -59,10 +60,10 @@ function card(data) {
 }
 
 // Displaying the missions
-function displayMission(data) {
-  container.innerHTML = "";
+function displayMission(data, targetContainer = container) {
+  targetContainer.innerHTML = "";
   data.forEach((m) => {
-    container.innerHTML += card(m);
+    targetContainer.innerHTML += card(m);
   });
 }
 
@@ -71,7 +72,6 @@ function loadMissions() {
   if (currentTab === "all") {
     displayMission(fetchMissions() || []);
   } else if (currentTab === "fav") {
-    // Changed from "favs" to "fav"
     showFavourites();
   }
 }
@@ -210,7 +210,6 @@ function editMission(id) {
 // Year filter
 const yearFilter = document.getElementById("myear");
 
-// Add event listener for year filter
 yearFilter.addEventListener("change", filterMissions);
 
 // selec filter
@@ -222,7 +221,7 @@ searchInput.addEventListener("keyup", filterMissions);
 function filterMissions() {
   let data = fetchMissions() || [];
 
-  // If we're in the favorites tab, only show favorites
+  // If in the favorites tab fea only show favorites
   if (currentTab === "fav") {
     data = data.filter((m) => m.favorite);
   }
@@ -238,7 +237,7 @@ function filterMissions() {
     const matchesAgency =
       selectedAgency === "All agencies" || m.agency === selectedAgency;
 
-    // Add year filtering logic
+    //year filtering logic
     let matchesYear = true;
     if (selectedYear !== "All years") {
       const missionYear = extractYearFromDate(m.date);
@@ -251,7 +250,7 @@ function filterMissions() {
   displayMission(filtered);
 }
 
-// Helper function to extract year from date
+// extracrt year from date
 function extractYearFromDate(dateString) {
   if (!dateString) return "";
 
@@ -276,12 +275,12 @@ tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     tabs.forEach((t) => t.classList.remove("ifactive"));
 
-    // add active to the clicked one
     tab.classList.add("ifactive");
+    
+    // update current tab
+    currentTab = tab.value; 
 
-    currentTab = tab.value; // update current tab
-
-    // Use filterMissions to respect all active filters
+  
     filterMissions();
   });
 });
@@ -298,9 +297,15 @@ function toggleFavorite(id) {
   // save
   localStorage.setItem("missions", JSON.stringify(missions));
 
-  // update UI immediately
   loadMissions();
+
+  const sidebarEl = document.getElementById("sidebar");
+  if (sidebarEl.style.transform === "translateX(0px)" || sidebarEl.style.transform === "translateX(0)") {
+    const favMissions = missions.filter((m) => m.favorite);
+    displayMission(favMissions, document.getElementById("favMissionsContainer"));
+  }
 }
+
 
 //favoutites
 function showFavourites() {
@@ -314,8 +319,14 @@ const sidebarEl = document.getElementById("sidebar");
 const overlayEl = document.getElementById("overlay");
 
 openSidebarEl.addEventListener("click", () => {
+  
   sidebarEl.style.transform = "translateX(0)";
   overlayEl.classList.add("active");
+
+  // Load and display favorite missions
+  const missions = fetchMissions() || [];
+  const favMissions = missions.filter((m) => m.favorite);
+  displayMission(favMissions, document.getElementById("favMissionsContainer"));
 });
 
 closeSidebarEl.addEventListener("click", () => {
