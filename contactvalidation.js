@@ -32,8 +32,10 @@ const inputs = {
 
 const errors = {
   firstname: document.getElementById("nameError"),
+  lastname: document.getElementById("lastnameError"),
   email: document.getElementById("emailError"),
   phone: document.getElementById("phoneError"),
+  message: document.getElementById("messageError"),
 };
 
 
@@ -51,11 +53,17 @@ function validateField(field) {
     case "firstname":
       valid = value.length >= 3;
       break;
+    case "lastname":
+      valid = value.length >= 3;
+      break;
     case "email":
       valid = patterns.email.test(value);
       break;
     case "phone":
       valid = patterns.phone.test(value);
+      break;
+    case "message":
+      valid = valid = value.length >= 3;
       break;
   }
 
@@ -80,7 +88,7 @@ function validateField(field) {
 }
 
 
-["firstname", "email", "phone"].forEach((key) => {
+["firstname","lastname", "email", "phone","message"].forEach((key) => {
   inputs[key].addEventListener("input", () => validateField(key));
   inputs[key].addEventListener("blur", () => validateField(key));
 });
@@ -90,10 +98,12 @@ sendButton.addEventListener("click", (e) => {
   e.preventDefault();
 
   const validName = validateField("firstname");
+  const validlastName = validateField("lastname");
   const validEmail = validateField("email");
   const validPhone = validateField("phone");
+  const validMessage = validateField("message");
 
-  if (validName && validEmail && validPhone) {
+  if (validName && validlastName && validMessage &&validEmail && validPhone) {
     sendButton.textContent = "Sending...";
     sendButton.disabled = true;
 

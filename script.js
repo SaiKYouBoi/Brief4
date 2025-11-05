@@ -140,11 +140,11 @@ function card(data) {
                   <p id="missionarticle">${data.description}
                   </p>
                   <div class="dateplusagency">
-                      <div class="mission-smallcard"><img src="./images/Home/object/calender-icon.png"
+                      <div class="mission-smallcard"><img src="./Images/Home/object/calender-icon.png"
                               alt="calender-icon">
                           <p>${data.date}</p>
                       </div>
-                      <div class="mission-smallcard"><img src="./images/Home/object/rocket-icon.png" alt="calender-icon">
+                      <div class="mission-smallcard"><img src="./Images/Home/object/rocket-icon.png" alt="calender-icon">
                           <p>${data.agency}</p>
                       </div>
                   </div>
